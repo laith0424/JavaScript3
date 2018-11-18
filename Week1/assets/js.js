@@ -4,6 +4,7 @@
     var xhr = new XMLHttpRequest();
     xhr.open( 'GET' , 'https://api.github.com/orgs/HackYourFuture/repos?per_page=100%27' );
     xhr.onload = function() {
+        
         if(this.status == 200){
            var repos = JSON.parse( this.responseText);
             var output = '';
@@ -12,7 +13,15 @@
         }
         document.getElementById('reposs').innerHTML = output; 
             
+        }else {
+            document.getElementById('users').classList.add('NetwrkError');
+            document.getElementById('users').innerHTML = "Netwrk error:" + this.status +' - '+ this.statusText;
         }
+        
+    }
+    xhr.onerror = function(){
+        document.getElementById('users').classList.add('NetwrkError');
+        document.getElementById('users').innerHTML = "Netwrk error:" + this.status +' - '+ this.statusText;
     }
 
     xhr.send();
@@ -58,6 +67,10 @@ function loadUsers() {
             document.getElementById('users').innerHTML = "Netwrk error:" + this.status +' - '+ this.statusText;
         }
     }
+    xhr.onerror = function(){
+        document.getElementById('users').classList.add('NetwrkError');
+        document.getElementById('users').innerHTML = "Netwrk error:" + this.status +' - '+ this.statusText;
+    }
 
     xhr.send();
 
@@ -97,6 +110,10 @@ function loadUsers2(){
             document.getElementById('users2').classList.add('NetwrkError');
             document.getElementById('users2').innerHTML = "Netwrk error:" + this.status +' - '+ this.statusText;
         }
+    }
+    xhr.onerror = function(){
+        document.getElementById('users2').classList.add('NetwrkError');
+        document.getElementById('users2').innerHTML = "Netwrk error:" + this.status +' - '+ this.statusText;
     }
 
     xhr.send();
