@@ -14,14 +14,14 @@
         document.getElementById('reposs').innerHTML = output; 
             
         }else {
-            document.getElementById('users').classList.add('NetwrkError');
-            document.getElementById('users').innerHTML = "Netwrk error:" + this.status +' - '+ this.statusText;
+            document.getElementById('users').classList.add('NetworkError');
+            document.getElementById('users').innerHTML = "Network error:" + this.status +' - '+ this.statusText;
         }
         
     }
     xhr.onerror = function(){
-        document.getElementById('users').classList.add('NetwrkError');
-        document.getElementById('users').innerHTML = "Netwrk error:" + this.status +' - '+ this.statusText;
+        document.getElementById('users').classList.add('NetworkError');
+        document.getElementById('users').innerHTML = "Network error:" + this.status +' - '+ this.statusText;
     }
 
     xhr.send();
@@ -63,13 +63,13 @@ function loadUsers() {
             document.getElementById('users').innerHTML = output;        
         }
         else {
-            document.getElementById('users').classList.add('NetwrkError');
-            document.getElementById('users').innerHTML = "Netwrk error:" + this.status +' - '+ this.statusText;
+            document.getElementById('users').classList.add('NetworkError');
+            document.getElementById('users').innerHTML = "Network error:" + this.status +' - '+ this.statusText;
         }
     }
     xhr.onerror = function(){
-        document.getElementById('users').classList.add('NetwrkError');
-        document.getElementById('users').innerHTML = "Netwrk error:" + this.status +' - '+ this.statusText;
+        document.getElementById('users').classList.add('NetworkError');
+        document.getElementById('users').innerHTML = "Network error:" + this.status +' - '+ this.statusText;
     }
 
     xhr.send();
@@ -107,13 +107,13 @@ function loadUsers2(){
             
         }
         else {//.classList.add("hide-me");
-            document.getElementById('users2').classList.add('NetwrkError');
-            document.getElementById('users2').innerHTML = "Netwrk error:" + this.status +' - '+ this.statusText;
+            document.getElementById('users2').classList.add('NetworkError');
+            document.getElementById('users2').innerHTML = "Network error:" + this.status +' - '+ this.statusText;
         }
     }
     xhr.onerror = function(){
-        document.getElementById('users2').classList.add('NetwrkError');
-        document.getElementById('users2').innerHTML = "Netwrk error:" + this.status +' - '+ this.statusText;
+        document.getElementById('users2').classList.add('NetworkError');
+        document.getElementById('users2').innerHTML = "Network error:" + this.status +' - '+ this.statusText;
     }
 
     xhr.send();
