@@ -24,7 +24,7 @@ span{
     font-weight:bold;
     font-size: 18px; 
 }
-#users{
+#repository{
     background-color: #fff;
     width: 40%; 
     height: 75%;
@@ -33,7 +33,7 @@ span{
     margin:   0% 0% 0% 0%;
     box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .2), 0 3px 4px 0 rgba(0, 0, 0, .14), 0 3px 3px -2px rgba(0, 0, 0, .12);
 }
-#users2{
+#users{
     background-color: #fff;
   width: 40%;
   height: 1075%;

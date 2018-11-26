@@ -23,32 +23,29 @@ const promiseToGetXMLHttpRequest = new Promise( function( resolve , reject ){
 
 promiseToGetXMLHttpRequest.then( function(responseText){            // In state  of "fulfilled"
     const repos = JSON.parse( responseText );
-        //
         var output = '';
         for(let i in repos){
             output += '<option value="' + repos[i].name +'">' + repos[i].name + '</option>';
     }
-   // 
     document.getElementById('reposs').innerHTML = output;
-    document.getElementById('users').classList.remove('NetworkError');
+    document.getElementById('repository').classList.remove('NetworkError');
 
 } ).catch( function(status){                                            // In state  of "rejected"
-    document.getElementById('users').classList.add('NetworkError');
-    document.getElementById('users').innerHTML = status;   
+    document.getElementById('repository').classList.add('NetworkError');
+    document.getElementById('repository').innerHTML = status;   
 } );
 
 
 
     
 
+document.getElementById('reposs').addEventListener("change" , loadRepository);
+
 document.getElementById('reposs').addEventListener("change" , loadUsers);
 
-document.getElementById('reposs').addEventListener("change" , loadUsers2);
 
 
-
-
-function loadUsers() {
+function loadRepository() {
     const option  = this.options[this.selectedIndex].value;
     const promiseToGetXMLHttpRequest = new Promise( function( resolve , reject ){  // Make a promise by get a XMLHttpRequest response
         const xhr = new XMLHttpRequest();
@@ -69,7 +66,7 @@ function loadUsers() {
 
     promiseToGetXMLHttpRequest.then( function(responseText){        // In state  of "fulfilled"
         const repos = JSON.parse( responseText );
-            //
+         
             var output = '';
             for(let i in repos){
                 if(option == repos[i].name) {
@@ -83,20 +80,20 @@ function loadUsers() {
                           '</div>';
                 }
         }
-       // 
-        document.getElementById('users').innerHTML = output;
-        document.getElementById('users').classList.remove('NetworkError');
+       
+        document.getElementById('repository').innerHTML = output;
+        document.getElementById('repository').classList.remove('NetworkError');
 
     } ).catch( function(status){                                                  // In state  of "rejected"
-        document.getElementById('users').classList.add('NetworkError');
-        document.getElementById('users').innerHTML = status;   
+        document.getElementById('repository').classList.add('NetworkError');
+        document.getElementById('repository').innerHTML = status;   
     } );
 
 }
 
 
 
-function loadUsers2(){
+function loadUsers(){
     const option  = this.options[this.selectedIndex].value;
     const url = `https://api.github.com/repos/HackYourFuture/${option}/contributors`;
     
@@ -131,14 +128,14 @@ function loadUsers2(){
                           '</ul>' +
                           '</div>';
         }
-       // 
-        document.getElementById('users2').innerHTML = output;
-        document.getElementById('users2').classList.remove('NetworkError');
+       
+        document.getElementById('users').innerHTML = output;
+        document.getElementById('users').classList.remove('NetworkError');
 
 
     } ).catch( function(status){                                               // In state  of "rejected"
-        document.getElementById('users2').classList.add('NetworkError');
-        document.getElementById('users2').innerHTML = status;   
+        document.getElementById('users').classList.add('NetworkError');
+        document.getElementById('users').innerHTML = status;   
     } );
 
 }
